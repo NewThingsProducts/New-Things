@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Affiliate Products</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>New Things – Product Picks</h1>
+    <input type="text" id="searchInput" placeholder="Search products..." />
+  </header>
+
+  <main>
+    <div class="category-filter">
+      <button onclick="filterProducts('all')">All</button>
+      <button onclick="filterProducts('tech')">Tech</button>
+      <button onclick="filterProducts('home')">Home</button>
+      <button onclick="filterProducts('fashion')">Fashion</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- JS injects product cards here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 New Things. As an Amazon Associate, we earn from qualifying purchases.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
