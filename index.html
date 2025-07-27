@@ -1,34 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amazon Affiliate Products</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>New Things - Amazon Affiliate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #111;
+      padding: 15px;
+      z-index: 1000;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Hero */
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f4f4f4;
+    }
+
+    /* Search bar */
+    #searchBar {
+      margin: 20px auto;
+      display: block;
+      padding: 10px;
+      width: 60%;
+      max-width: 500px;
+      font-size: 16px;
+    }
+
+    /* Products */
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Categories */
+    #categories {
+      padding: 40px 20px;
+      text-align: center;
+      background: #fafafa;
+    }
+    .category-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .category-box {
+      padding: 15px 25px;
+      background: #eee;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .category-box:hover {
+      background: #ddd;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      padding: 40px 20px;
+      text-align: center;
+      background: #f4f4f4;
+    }
+
+    .testimonial {
+      max-width: 600px;
+      margin: auto;
+      font-style: italic;
+    }
+
+    /* Contact */
+    #contact {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Dark Mode */
+    .dark {
+      background: #111;
+      color: white;
+    }
+    .dark .navbar {
+      background: #000;
+    }
+    .dark .category-box {
+      background: #222;
+      color: white;
+    }
+    .dark .category-box:hover {
+      background: #333;
+    }
+    .dark footer {
+      background: #000;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>New Things – Product Picks</h1>
-    <input type="text" id="searchInput" placeholder="Search products..." />
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <h1>Welcome to New Things</h1>
+    <p>Discover and shop the best Amazon affiliate products</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
 
-  <main>
-    <div class="category-filter">
-      <button onclick="filterProducts('all')">All</button>
-      <button onclick="filterProducts('tech')">Tech</button>
-      <button onclick="filterProducts('home')">Home</button>
-      <button onclick="filterProducts('fashion')">Fashion</button>
-    </div>
+  <!-- Search Bar -->
+  <input type="text" id="searchBar" placeholder="Search products..." onkeyup="searchProducts()">
 
-    <div class="product-grid" id="productGrid">
-      <!-- JS injects product cards here -->
-    </div>
-  </main>
+  <!-- Products -->
+  <section id="products" class="products-grid">
+    <div class="product-card">Product 1<br><a href="#">Buy on Amazon</a></div>
+    <div class="product-card">Product 2<br><a href="#">Buy on Amazon</a></div>
+    <div class="product-card">Product 3<br><a href="#">Buy on Amazon</a></div>
+    <div class="product-card">Product 4<br><a href="#">Buy on Amazon</a></div>
+  </section>
 
+  <!-- Categories -->
+  <section id="categories">
+    <h2>Browse by Category</h2>
+    <div class="category-container">
+      <div class="category-box">Electronics</div>
+      <div class="category-box">Fashion</div>
+      <div class="category-box">Home & Kitchen</div>
+      <div class="category-box">Fitness</div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Visitors Say</h2>
+    <div class="testimonial">
+      <p>"Super easy to find great products. I love the clean design!"</p>
+      <span>- Priya from Delhi</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@newthings.com</p>
+    <p>Instagram: @newthingsproducts</p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 New Things. As an Amazon Associate, we earn from qualifying purchases.</p>
+    <p>&copy; 2025 New Things. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JS -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    function searchProducts() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.getElementsByClassName('product-card');
+      for (let i = 0; i < cards.length; i++) {
+        const text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? '' : 'none';
+      }
+    }
+  </script>
+
 </body>
 </html>
